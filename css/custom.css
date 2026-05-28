@@ -3,3 +3,17 @@
 -------------------------------------------------------------------*/
 
 /** ADD YOUR AWESOME CODES HERE **/
+
+/* Fix: Double scrollbar caused by overflow-x: hidden on both html and body in style.css.
+   Setting overflow-x on html creates a separate scroll context; only body needs this. */
+html {
+    overflow-x: initial;
+}
+
+/* Fix: White space below footer caused by .cprt being position: absolute; bottom: 0
+   (positioned relative to the initial containing block, collapsing the footer to zero height).
+   Making it position: relative keeps it inside the footer's normal flow. */
+.cprt {
+    position: relative;
+    bottom: auto;
+}
